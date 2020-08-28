@@ -9,6 +9,7 @@ The model was trained on top of Xception model from keras using **Transfer Learn
 The model took about 40 minutes to train using custom dataset.
 <hr>
 To ensure the app runs without any import error, please run in terminal: <br>
+
 ``` pip install -r requirements.txt ``` <br>
 
 To run the app: <br>
