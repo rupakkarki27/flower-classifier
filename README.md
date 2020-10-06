@@ -13,4 +13,4 @@ To ensure the app runs without any import error, please run in terminal: <br>
 ``` pip install -r requirements.txt ``` <br>
 
 To run the app: <br>
-``` streamlit run iris_classifier.py ``` <br>
+``` streamlit run app.py ``` <br>

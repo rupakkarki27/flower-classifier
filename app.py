@@ -17,26 +17,26 @@ img = st.file_uploader("Please upload Image", type=["jpeg", "jpg", "png"])
 
 # Display Image
 st.write("Uploaded Image")
-img = Image.open(img)
-st.image(img)
-
-# Prediction
-img = process_image(img)
-
-model = tf.keras.models.load_model(
-	"/home/rupakkarki/Desktop/deep_learning/Models/flower_classifier.hdf5")
+try:
+	img = Image.open(img)
+	st.image(img)
+	img = process_image(img)
 
 
-prediction = prediction_result(model, img)
+	# Prediction
+	model = tf.keras.models.load_model(
+		"/home/rupakkarki/Desktop/deep_learning/Models/flower_classifier.hdf5")
+	prediction = prediction_result(model, img)
 
-# Progress Bar
-my_bar = st.progress(0)
-for percent_complete in range(100):
-	time.sleep(0.05)
-	my_bar.progress(percent_complete + 1)
 
-# Output
+	# Progress Bar
+	my_bar = st.progress(0)
+	for percent_complete in range(100):
+		time.sleep(0.05)
+		my_bar.progress(percent_complete + 1)
 
-st.write("# Flower Type: {}".format(prediction["class"]))
-
-st.write("With Accuracy:", prediction["accuracy"],"%")
+	# Output
+	st.write("# Flower Type: {}".format(prediction["class"]))
+	st.write("With Accuracy:", prediction["accuracy"],"%")
+except AttributeError:
+	st.write("No Image Selected")
