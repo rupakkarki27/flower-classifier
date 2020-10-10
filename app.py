@@ -19,7 +19,7 @@ img = st.file_uploader("Please upload Image", type=["jpeg", "jpg", "png"])
 st.write("Uploaded Image")
 try:
 	img = Image.open(img)
-	st.image(img)
+	st.image(img)	# display the image
 	img = process_image(img)
 
 
